@@ -1,0 +1,122 @@
+/* About Section */
+.about-section {
+  background: linear-gradient(180deg, #f9f7f4 0%, #faf9f7 50%, #f5f3f0 100%);
+  padding: 6rem 2rem;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Decorative top element */
+.about-decorative {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.about-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c9b99a, transparent);
+}
+
+.about-kanji {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: #b8a888;
+}
+
+/* Content */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-tagline {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #6b6259;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.about-description {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 300;
+  color: #7a7267;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.about-welcome {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: #5a534a;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
+}
+
+/* Decorative bottom element */
+.about-decorative-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+.about-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #c9b99a;
+  opacity: 0.6;
+}
+
+.about-dot:nth-child(2) {
+  opacity: 0.8;
+  width: 5px;
+  height: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-decorative {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-line {
+    width: 40px;
+  }
+
+  .about-content {
+    gap: 1.5rem;
+  }
+
+  .about-decorative-bottom {
+    margin-top: 2rem;
+  }
+}
