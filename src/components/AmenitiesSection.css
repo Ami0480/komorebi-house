@@ -1,0 +1,374 @@
+/* Amenities Section */
+.amenities-section {
+  position: relative;
+  background: linear-gradient(180deg, #f5f3f0 0%, #f0ebe5 50%, #ebe6df 100%);
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Large bg character in background */
+.bg-character {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(8rem, 12vw, 100px);
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.02);
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+}
+
+.bg-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header */
+.amenities-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.amenities-line {
+  width: 40px;
+  height: 1px;
+  background: #c9b99a;
+}
+
+.amenities-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #5a534a;
+  letter-spacing: 0.3em;
+}
+
+.amenities-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #8a8279;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.amenities-instruction {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #a09889;
+  letter-spacing: 0.15em;
+  margin-bottom: 3rem;
+}
+
+/* Ma Container - Floating Layout */
+.ma-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+/* Individual Space Buttons */
+.ma-space {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 185, 154, 0.3);
+  padding: 1.25rem 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ma-space:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(201, 185, 154, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.ma-space.active {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #c9b99a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ma-space.faded {
+  opacity: 0.4;
+}
+
+.space-name-jp {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.75rem;
+  color: #b8a888;
+  letter-spacing: 0.2em;
+}
+
+.space-name {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #5a534a;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* Position each space in Ma style - asymmetric floating */
+.ma-space-1 {
+  top: 5%;
+  left: 15%;
+}
+
+.ma-space-2 {
+  top: 8%;
+  right: 20%;
+}
+
+.ma-space-3 {
+  top: 30%;
+  left: 5%;
+}
+
+.ma-space-4 {
+  top: 35%;
+  right: 8%;
+}
+
+.ma-space-5 {
+  top: 55%;
+  left: 25%;
+}
+
+.ma-space-6 {
+  top: 60%;
+  right: 25%;
+}
+
+.ma-space-7 {
+  top: 80%;
+  left: 10%;
+}
+
+.ma-space-8 {
+  top: 82%;
+  right: 15%;
+}
+
+/* Overlay */
+.amenities-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.amenities-overlay.visible {
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+/* Modal */
+.amenities-modal {
+  background: linear-gradient(180deg, #faf9f7 0%, #f5f3f0 100%);
+  padding: 3rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+}
+
+.amenities-modal.zoom-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #a09889;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #5a534a;
+}
+
+/* Modal Header */
+.modal-header {
+  margin-bottom: 2rem;
+}
+
+.modal-name-jp {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  color: #c9b99a;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.5rem;
+}
+
+.modal-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #5a534a;
+  letter-spacing: 0.1em;
+}
+
+/* Amenities Grid */
+.modal-amenities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(201, 185, 154, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: amenityFadeIn 0.4s ease forwards;
+}
+
+@keyframes amenityFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.amenity-icon {
+  font-size: 1.5rem;
+}
+
+.amenity-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #6b6259;
+  letter-spacing: 0.05em;
+}
+
+/* Modal Decoration */
+.modal-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.modal-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #c9b99a;
+  opacity: 0.5;
+}
+
+.modal-dot:nth-child(2) {
+  opacity: 0.8;
+  width: 5px;
+  height: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .amenities-section {
+    padding: 4rem 1rem;
+  }
+
+  .ma-container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .ma-space {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    padding: 1rem 1.25rem;
+  }
+
+  .bg-character {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(4rem, 15vw, 8rem); /* Responsive sizing */
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.03); /* Very subtle */
+    user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .amenities-modal {
+    padding: 2rem 1.5rem;
+    max-width: 340px;
+  }
+
+  .modal-amenities {
+    gap: 0.75rem;
+  }
+
+  .amenity-item {
+    padding: 0.75rem;
+  }
+
+  .amenity-icon {
+    font-size: 1.25rem;
+  }
+
+  .amenity-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-amenities {
+    grid-template-columns: 1fr 1fr;
+  }
+}
