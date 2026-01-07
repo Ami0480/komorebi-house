@@ -1,28 +1,24 @@
 import { useState } from "react";
 import "./AmenitiesSection.css";
 
-const spaces = [
-  {
-    id: "living-room",
-    name: "Living Room",
+const spacesData = {
+  bathroom: {
+    name: "Bathroom",
     amenities: [
-      { icon: "📺", label: "Smart TV" },
-      { icon: "🛋️", label: "Sofa Bed" },
-      { icon: "❄️", label: "Air Conditioning" },
-      { icon: "📶", label: "High-Speed WiFi" },
+      { icon: "🛁", label: "Soaking Tub" },
+      { icon: "🚿", label: "Rain Shower" },
+      { icon: "🧴", label: "Amenities Provided" },
+      { icon: "💨", label: "Heated Floor" },
     ],
   },
-  {
-    id: "dining-room",
-    name: "Dining Room",
+  toilet: {
+    name: "Toilet",
     amenities: [
-      { icon: "🪑", label: "6-Seat Table" },
-      { icon: "💡", label: "Pendant Lighting" },
-      { icon: "🪟", label: "Garden View" },
+      { icon: "🚽", label: "Japanese Washlet" },
+      { icon: "🧻", label: "Supplies Included" },
     ],
   },
-  {
-    id: "kitchen",
+  kitchen: {
     name: "Kitchen",
     amenities: [
       { icon: "🍳", label: "Gas Stove" },
@@ -32,8 +28,15 @@ const spaces = [
       { icon: "🥡", label: "Microwave" },
     ],
   },
-  {
-    id: "bedroom-1",
+  dining: {
+    name: "Dining",
+    amenities: [
+      { icon: "🪑", label: "6-Seat Table" },
+      { icon: "💡", label: "Pendant Lighting" },
+      { icon: "🪟", label: "Garden View" },
+    ],
+  },
+  "bedroom-1": {
     name: "Bedroom 1",
     amenities: [
       { icon: "🛏️", label: "King Bed" },
@@ -42,36 +45,25 @@ const spaces = [
       { icon: "🪞", label: "Vanity Mirror" },
     ],
   },
-  {
-    id: "bedroom-2",
+  "bedroom-2": {
     name: "Bedroom 2",
     amenities: [
       { icon: "🛏️", label: "Twin Beds" },
       { icon: "📚", label: "Study Desk" },
       { icon: "❄️", label: "Air Conditioning" },
-      { icon: "🧸", label: "Kid Friendly" },
+      { icon: "🧒", label: "Kid Friendly" },
     ],
   },
-  {
-    id: "bathroom",
-    name: "Bathroom",
+  living: {
+    name: "Living",
     amenities: [
-      { icon: "🛁", label: "Soaking Tub" },
-      { icon: "🚿", label: "Rain Shower" },
-      { icon: "🧴", label: "Amenities Provided" },
-      { icon: "💨", label: "Heated Floor" },
+      { icon: "📺", label: "Smart TV" },
+      { icon: "🛋️", label: "Sofa Bed" },
+      { icon: "❄️", label: "Air Conditioning" },
+      { icon: "📶", label: "High-Speed WiFi" },
     ],
   },
-  {
-    id: "toilet",
-    name: "Toilet",
-    amenities: [
-      { icon: "🚽", label: "Japanese Washlet" },
-      { icon: "🧻", label: "Supplies Included" },
-    ],
-  },
-  {
-    id: "balcony",
+  balcony: {
     name: "Balcony",
     amenities: [
       { icon: "🌿", label: "Garden View" },
@@ -79,7 +71,7 @@ const spaces = [
       { icon: "🌅", label: "Sunrise View" },
     ],
   },
-];
+};
 
 export default function AmenitiesSection() {
   const [activeSpace, setActiveSpace] = useState(null);
@@ -92,7 +84,22 @@ export default function AmenitiesSection() {
     setActiveSpace(null);
   };
 
-  const activeSpaceData = spaces.find((s) => s.id === activeSpace);
+  const activeSpaceData = activeSpace ? spacesData[activeSpace] : null;
+
+  const SpaceButton = ({ id }) => {
+    const space = spacesData[id];
+    return (
+      <button
+        className={`floor-space ${id} ${activeSpace === id ? "active" : ""} ${
+          activeSpace && activeSpace !== id ? "faded" : ""
+        }`}
+        onClick={() => handleSpaceClick(id)}
+      >
+        <span className="space-name-jp">{space.nameJp}</span>
+        <span className="space-name">{space.name}</span>
+      </button>
+    );
+  };
 
   return (
     <section id="amenities-section" className="amenities-section">
@@ -112,20 +119,27 @@ export default function AmenitiesSection() {
       {/* Instruction */}
       <p className="amenities-instruction">Select a space to explore</p>
 
-      {/* Ma-style floating spaces */}
-      <div className="ma-container">
-        {spaces.map((space, index) => (
-          <button
-            key={space.id}
-            className={`ma-space ma-space-${index + 1} ${
-              activeSpace === space.id ? "active" : ""
-            } ${activeSpace && activeSpace !== space.id ? "faded" : ""}`}
-            onClick={() => handleSpaceClick(space.id)}
-          >
-            <span className="space-name-jp">{space.nameJp}</span>
-            <span className="space-name">{space.name}</span>
-          </button>
-        ))}
+      {/* Floor Plan Layout */}
+      <div className="floor-plan">
+        {/* Top Row: Bathroom, Toilet, Kitchen, Dining */}
+        <div className="floor-row floor-row-top">
+          <SpaceButton id="bathroom" />
+          <SpaceButton id="toilet" />
+          <SpaceButton id="kitchen" />
+          <SpaceButton id="dining" />
+        </div>
+
+        {/* Middle Row: Bedroom 1, Bedroom 2, Living */}
+        <div className="floor-row floor-row-middle">
+          <SpaceButton id="bedroom-1" />
+          <SpaceButton id="bedroom-2" />
+          <SpaceButton id="living" />
+        </div>
+
+        {/* Bottom Row: Balcony */}
+        <div className="floor-row floor-row-bottom">
+          <SpaceButton id="balcony" />
+        </div>
       </div>
 
       {/* Amenities Modal/Overlay */}
