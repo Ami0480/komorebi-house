@@ -1,7 +1,7 @@
 /* About Section */
 .about-section {
   background: linear-gradient(180deg, #f9f7f4 0%, #faf9f7 50%, #f5f3f0 100%);
-  padding: 6rem 2rem;
+  padding: 4rem;
   min-height: 60vh;
   display: flex;
   align-items: center;

@@ -120,16 +120,6 @@ export default function GallerySection() {
             </div>
           ))}
         </div>
-
-        {/* Progress Indicator */}
-        <div className="gallery-progress">
-          {galleryImages.map((_, index) => (
-            <div
-              key={index}
-              className={`progress-dot ${index <= activeIndex ? "active" : ""}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

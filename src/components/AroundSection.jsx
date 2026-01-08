@@ -18,45 +18,47 @@ const aroundPlaces = [
     id: 2,
     category: "Cafe",
     categoryEn: "Cafe",
-    name: "Morning Brew",
+    name: "Emmerson's Cafe",
     description:
-      "Artisan coffee shop serving specialty single-origin beans and fresh pastries. A cozy spot to start your day or catch up on work with reliable WiFi.",
+      "Local go-to for coffee, fresh lunch options and sweet treats. Open early for breakfast and lunch. A cozy spot to start your day or catch up on work with reliable WiFi.",
     distance: "2 min walk",
     image:
       "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
   },
+
   {
     id: 3,
-    category: "Restaurant",
-    categoryEn: "Restaurant",
-    name: "Harvest Table",
+    category: "Cafe",
+    categoryEn: "Cafe",
+    name: "Pala",
     description:
-      "Farm-to-table dining experience featuring seasonal Australian cuisine. Known for their weekend brunch and extensive natural wine selection.",
-    distance: "4 min walk",
+      "Asian fusion with a Fillipino Twist. Open breakfast and lunch. Recommend the breakfast burrito and donuts.",
+    distance: "10 min walk",
+    image:
+      "https://images.unsplash.com/photo-1585938389612-a552a28d6914?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  {
+    id: 4,
+    category: "Pub",
+    categoryEn: "Pub",
+    name: "The Paddo",
+    description:
+      "A local icon since 1932, The Paddington offers a historic venue to enjoy dining, drinks, sports, live music and a game of pool.",
+    distance: "5 min drive",
     image:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: 4,
+    id: 5,
     category: "Shopping",
     categoryEn: "Shopping",
-    name: "Local Market",
+    name: "Karrinyup Shopping Centre",
     description:
-      "Weekly farmers market with fresh produce, artisan goods, and local crafts. Open every Saturday morning with live music and food stalls.",
-    distance: "8 min walk",
+      "Karrinyup is Perth's premier retail venue and home to 290 stores including Zara, Sephora, H&M, UNIQLO, and heaps of restaurants.",
+    distance: "15 min drive",
     image:
       "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: 5,
-    category: "Station",
-    categoryEn: "Station",
-    name: "Central Station",
-    description:
-      "Major transit hub connecting you to the city center, airport, and surrounding suburbs. Frequent services run throughout the day.",
-    distance: "6 min walk",
-    image:
-      "https://images.unsplash.com/photo-1555448248-2571daf6344b?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -153,18 +155,6 @@ export default function AroundSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Progress Indicator */}
-      <div className="around-progress">
-        {aroundPlaces.map((_, index) => (
-          <div
-            key={index}
-            className={`progress-line ${
-              index === activeIndex ? "active" : ""
-            } ${index < activeIndex ? "passed" : ""}`}
-          />
-        ))}
       </div>
     </section>
   );

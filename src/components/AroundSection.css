@@ -204,37 +204,6 @@
 }
 
 /* ========================================
-   PROGRESS INDICATOR
-   ======================================== */
-
-.around-progress {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.progress-line {
-  width: 3px;
-  height: 30px;
-  background: rgba(201, 185, 154, 0.3);
-  transition: all 0.4s ease;
-}
-
-.progress-line.passed {
-  background: rgba(201, 185, 154, 0.6);
-}
-
-.progress-line.active {
-  background: #c9b99a;
-  height: 50px;
-}
-
-/* ========================================
    RESPONSIVE
    ======================================== */
 
@@ -306,18 +275,6 @@
     font-size: 0.9rem;
   }
 
-  .around-progress {
-    right: 1rem;
-  }
-
-  .progress-line {
-    height: 20px;
-  }
-
-  .progress-line.active {
-    height: 35px;
-  }
-
   .caption-category {
     font-size: 1.25rem;
   }
@@ -331,9 +288,5 @@
 
   .around-item {
     padding: 2rem 1rem;
-  }
-
-  .around-progress {
-    right: 0.5rem;
   }
 }
