@@ -52,6 +52,19 @@ export default function GallerySection() {
   const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Navigation functions
+  const scrollToAbout = () => {
+    document.getElementById("amenities-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToAround = () => {
+    document.getElementById("around-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -119,6 +132,18 @@ export default function GallerySection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="gallery-nav">
+          <button className="gallery-nav-btn nav-prev" onClick={scrollToAbout}>
+            <span className="nav-arrow">←</span>
+            <span className="nav-text">Back to Amenities</span>
+          </button>
+          <button className="gallery-nav-btn nav-next" onClick={scrollToAround}>
+            <span className="nav-text">Skip to Around</span>
+            <span className="nav-arrow">→</span>
+          </button>
         </div>
       </div>
     </section>

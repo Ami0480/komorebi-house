@@ -103,11 +103,6 @@ export default function AmenitiesSection() {
 
   return (
     <section id="amenities-section" className="amenities-section">
-      {/* Background decoration */}
-      <div className="bg-background">
-        <span className="bg-character">Spaces & Amenities</span>
-      </div>
-
       {/* Header */}
       <div className="amenities-header">
         <span className="amenities-line"></span>

@@ -2,29 +2,9 @@
 .amenities-section {
   position: relative;
   background: linear-gradient(180deg, #f5f3f0 0%, #f0ebe5 50%, #ebe6df 100%);
-  padding: 6rem 2rem;
+  padding: 2rem;
   min-height: 100vh;
   overflow: hidden;
-}
-
-/* Background text */
-.bg-background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bg-character {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3rem, 12vw, 100px);
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.02);
-  user-select: none;
-  white-space: nowrap;
-  letter-spacing: 0.1em;
 }
 
 /* Header */
@@ -369,10 +349,6 @@
    ======================================== */
 
 @media (max-width: 768px) {
-  .amenities-section {
-    padding: 4rem 1rem;
-  }
-
   .floor-plan {
     gap: 8px;
     padding: 8px;
