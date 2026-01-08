@@ -66,10 +66,22 @@ export default function AroundSection() {
   const sectionRef = useRef(null);
   const textContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!textContainerRef.current || !sectionRef.current) return;
+      if (!textContainerRef.current || !sectionRef.current || isMobile) return;
 
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const isInView =
@@ -97,7 +109,7 @@ export default function AroundSection() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section id="around-section" className="around-section" ref={sectionRef}>
@@ -108,42 +120,66 @@ export default function AroundSection() {
         <span className="around-line"></span>
       </div>
 
-      {/* Main Content */}
-      <div className="around-content">
-        {/* Left - Fixed Image */}
-        <div className="around-image-container">
-          <div className="around-image-sticky">
+      {/* Desktop Content */}
+      {!isMobile && (
+        <div className="around-content">
+          {/* Left - Fixed Image */}
+          <div className="around-image-container">
+            <div className="around-image-sticky">
+              {aroundPlaces.map((place, index) => (
+                <div
+                  key={place.id}
+                  className={`around-image ${
+                    index === activeIndex ? "active" : ""
+                  }`}
+                  style={{ backgroundImage: `url(${place.image})` }}
+                />
+              ))}
+              <div className="around-image-overlay" />
+
+              {/* Image Caption */}
+              <div className="around-image-caption">
+                <span className="caption-category">
+                  {aroundPlaces[activeIndex]?.category}
+                </span>
+                <span className="caption-distance">
+                  {aroundPlaces[activeIndex]?.distance}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right - Scrolling Text */}
+          <div className="around-text-container" ref={textContainerRef}>
             {aroundPlaces.map((place, index) => (
               <div
                 key={place.id}
-                className={`around-image ${
+                className={`around-item ${
                   index === activeIndex ? "active" : ""
                 }`}
-                style={{ backgroundImage: `url(${place.image})` }}
-              />
+              >
+                <div className="around-item-inner">
+                  <span className="item-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="item-category">{place.categoryEn}</span>
+                  <h3 className="item-name">{place.name}</h3>
+                  <p className="item-description">{place.description}</p>
+                  <span className="item-distance">{place.distance}</span>
+                </div>
+              </div>
             ))}
-            <div className="around-image-overlay" />
-
-            {/* Image Caption */}
-            <div className="around-image-caption">
-              <span className="caption-category">
-                {aroundPlaces[activeIndex]?.category}
-              </span>
-              <span className="caption-distance">
-                {aroundPlaces[activeIndex]?.distance}
-              </span>
-            </div>
           </div>
         </div>
+      )}
 
-        {/* Right - Scrolling Text */}
-        <div className="around-text-container" ref={textContainerRef}>
+      {/* Mobile Layout - Image under each paragraph */}
+      {isMobile && (
+        <div className="around-mobile">
           {aroundPlaces.map((place, index) => (
-            <div
-              key={place.id}
-              className={`around-item ${index === activeIndex ? "active" : ""}`}
-            >
-              <div className="around-item-inner">
+            <div key={place.id} className="around-mobile-item">
+              {/* Text Content */}
+              <div className="mobile-item-content">
                 <span className="item-number">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -152,10 +188,21 @@ export default function AroundSection() {
                 <p className="item-description">{place.description}</p>
                 <span className="item-distance">{place.distance}</span>
               </div>
+
+              {/* Image */}
+              <div
+                className="mobile-item-image"
+                style={{ backgroundImage: `url(${place.image})` }}
+              >
+                <div className="mobile-image-overlay" />
+                <div className="mobile-image-caption">
+                  <span>{place.category}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
+      )}
     </section>
   );
 }
