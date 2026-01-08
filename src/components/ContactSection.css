@@ -1,0 +1,193 @@
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
+.contact-section {
+  position: relative;
+  background: linear-gradient(180deg, #f9f7f4 0%, #f5f3f0 50%, #f0ebe5 100%);
+  padding: 6rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Header */
+.contact-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 4rem;
+}
+
+.contact-line {
+  width: 40px;
+  height: 1px;
+  background: #c9b99a;
+}
+
+.contact-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #5a534a;
+  letter-spacing: 0.3em;
+}
+
+.contact-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #8a8279;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Divider */
+.contact-divider {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.contact-divider span {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 185, 154, 0.5),
+    transparent
+  );
+}
+
+/* Contact Info */
+.contact-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #b8a888;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contact-value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #5a534a;
+  letter-spacing: 0.05em;
+}
+
+a.contact-item:hover .contact-value {
+  color: #3a3632;
+}
+
+/* Footer Note */
+.contact-note {
+  position: relative;
+  z-index: 1;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #a09889;
+  letter-spacing: 0.1em;
+  margin-top: 2.5rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 5rem 1.5rem;
+    min-height: 70vh;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-info {
+    gap: 1.5rem;
+  }
+
+  .contact-value {
+    font-size: 1.1rem;
+  }
+
+  .booking-button {
+    font-size: 0.85rem;
+    padding: 1rem 2rem;
+  }
+
+  .contact-divider {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4rem 1rem;
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .contact-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .contact-icon {
+    font-size: 1.25rem;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+  }
+
+  .booking-button {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
