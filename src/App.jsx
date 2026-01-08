@@ -2,6 +2,7 @@ import KomorebiHero from "./components/KomorebiHero";
 import AboutSection from "./components/AboutSection";
 import AmenitiesSection from "./components/AmenitiesSection";
 import GallerySection from "./components/GallerySection";
+import AroundSection from "./components/AroundSection";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <AboutSection />
       <AmenitiesSection />
       <GallerySection />
+      <AroundSection />
     </main>
   );
 }
