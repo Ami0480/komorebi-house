@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import BackToTop from "./components/BackToTop";
 import KomorebiHero from "./components/KomorebiHero";
 import AboutSection from "./components/AboutSection";
@@ -10,7 +9,6 @@ import ContactSection from "./components/ContactSection";
 function App() {
   return (
     <main>
-      <Navbar />
       <BackToTop />
       <KomorebiHero />
       <AboutSection />
