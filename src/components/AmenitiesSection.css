@@ -473,4 +473,17 @@
   .space-name-jp {
     font-size: 0.5rem;
   }
+
+  .asanoha-fade {
+    background: linear-gradient(
+      to bottom,
+      #f5f3f0 0%,
+      transparent 50%,
+      transparent 90%,
+      #f5f3f0 100%
+    );
+  }
+  .amenities-header {
+    text-align: center;
+  }
 }
