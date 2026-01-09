@@ -5,60 +5,56 @@ const spacesData = {
   bathroom: {
     name: "Bathroom",
     amenities: [
-      { icon: "🛁", label: "Soaking Tub" },
+      { icon: "🛁", label: "Bath Tub" },
       { icon: "🚿", label: "Rain Shower" },
-      { icon: "🧴", label: "Amenities Provided" },
-      { icon: "💨", label: "Heated Floor" },
+      { icon: "🧖🏼‍♀️", label: "Towels" },
+      { icon: "🧴", label: "Shampoo, Conditioner & Body Wash" },
     ],
   },
   toilet: {
     name: "Toilet",
-    amenities: [
-      { icon: "🚽", label: "Japanese Washlet" },
-      { icon: "🧻", label: "Supplies Included" },
-    ],
+    amenities: [{ icon: "🧻", label: "Supplies Included" }],
   },
   kitchen: {
     name: "Kitchen",
     amenities: [
-      { icon: "🍳", label: "Gas Stove" },
+      { icon: "🍳", label: "IH Cooktop" },
       { icon: "🧊", label: "Refrigerator" },
       { icon: "☕", label: "Coffee Machine" },
       { icon: "🍽️", label: "Dishwasher" },
       { icon: "🥡", label: "Microwave" },
+      { icon: "🍚", label: "Rice Cooker" },
+      { icon: "🍴", label: "Cutleries" },
     ],
   },
   dining: {
     name: "Dining",
     amenities: [
-      { icon: "🪑", label: "6-Seat Table" },
-      { icon: "💡", label: "Pendant Lighting" },
-      { icon: "🪟", label: "Garden View" },
+      { icon: "🪑", label: "4-Seat Table" },
+      { icon: "🧒", label: "High Chair for child" },
     ],
   },
   "bedroom-1": {
     name: "Bedroom 1",
     amenities: [
-      { icon: "🛏️", label: "King Bed" },
-      { icon: "👔", label: "Walk-in Closet" },
-      { icon: "❄️", label: "Air Conditioning" },
-      { icon: "🪞", label: "Vanity Mirror" },
+      { icon: "🛏️", label: "Queen Bed" },
+      { icon: "👔", label: "Closet" },
+      { icon: "❄️", label: "Air Conditioning & Heater" },
+      { icon: "🪞", label: "Mirror" },
     ],
   },
   "bedroom-2": {
     name: "Bedroom 2",
     amenities: [
-      { icon: "🛏️", label: "Twin Beds" },
-      { icon: "📚", label: "Study Desk" },
-      { icon: "❄️", label: "Air Conditioning" },
-      { icon: "🧒", label: "Kid Friendly" },
+      { icon: "🛏️", label: "Double Beds" },
+      { icon: "❄️", label: "Fan & Heater" },
     ],
   },
   living: {
     name: "Living",
     amenities: [
       { icon: "📺", label: "Smart TV" },
-      { icon: "🛋️", label: "Sofa Bed" },
+      { icon: "🛋️", label: "3-seat Sofa" },
       { icon: "❄️", label: "Air Conditioning" },
       { icon: "📶", label: "High-Speed WiFi" },
     ],
@@ -66,9 +62,8 @@ const spacesData = {
   balcony: {
     name: "Balcony",
     amenities: [
-      { icon: "🌿", label: "Garden View" },
+      { icon: "🌳", label: "Tree View" },
       { icon: "🪑", label: "Outdoor Seating" },
-      { icon: "🌅", label: "Sunrise View" },
     ],
   },
 };
@@ -103,11 +98,14 @@ export default function AmenitiesSection() {
 
   return (
     <section id="amenities-section" className="amenities-section">
+      {/* Asanoha Pattern Background */}
+      <div className="asanoha-background" />
+      <div className="asanoha-fade" />
+
       {/* Header */}
       <div className="amenities-header">
         <span className="amenities-line"></span>
         <h2 className="amenities-title">Spaces & Amenities</h2>
-
         <span className="amenities-line"></span>
       </div>
 
@@ -168,12 +166,6 @@ export default function AmenitiesSection() {
                     <span className="amenity-label">{amenity.label}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="modal-decoration">
-                <span className="modal-dot"></span>
-                <span className="modal-dot"></span>
-                <span className="modal-dot"></span>
               </div>
             </>
           )}
