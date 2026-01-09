@@ -3,6 +3,6 @@
 @import "tailwindcss";
 
 @theme {
-  --font-cormorant: "Cormorant Garamond", "serif";
-  --font-outfit: "Outfit", "sans-serif";
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-outfit: "Outfit", sans-serif;
 }
