@@ -1,3 +1,5 @@
+import Navbar from "./components/Navbar";
+import BackToTop from "./components/BackToTop";
 import KomorebiHero from "./components/KomorebiHero";
 import AboutSection from "./components/AboutSection";
 import AmenitiesSection from "./components/AmenitiesSection";
@@ -8,6 +10,8 @@ import ContactSection from "./components/ContactSection";
 function App() {
   return (
     <main>
+      <Navbar />
+      <BackToTop />
       <KomorebiHero />
       <AboutSection />
       <AmenitiesSection />

@@ -21,7 +21,7 @@ export default function KomorebiHero() {
   };
 
   return (
-    <section className="hero">
+    <section id="hero-section" className="hero">
       {/* Ken Burns Background Slideshow */}
       <div className="background-slideshow">
         {backgroundImages.map((image, index) => (
